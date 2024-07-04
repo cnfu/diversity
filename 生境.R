@@ -22,7 +22,7 @@ psj1 <- ggplot(df1,aes(种中名,生境))+geom_point(aes(size=生境,fill=生境
                   aes(种中名,生境,label=种中名),
                   max.overlaps = Inf,color='grey20')+
   scale_fill_stepsn(breaks=seq(1,5,1),
-                    colors = brewer.pal(6, "Blues"))+xlab('')
+                    colors = brewer.pal(6, "Blues"))+xlab('生境')
 
 df1 %>% mutate(生境分类=cut(生境,
                         breaks = c(1,2,3,4,5),include.lowest = T,
