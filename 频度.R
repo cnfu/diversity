@@ -21,8 +21,9 @@ ppd1 <- ggplot(df1,aes(种中名,频度))+geom_point(aes(size=频度,fill=频度
                   aes(种中名,频度,label=种中名),
                   max.overlaps = Inf,color='grey20')+
   scale_fill_stepsn(breaks=seq(0.5,5,2),
-                    colors = brewer.pal(6, "Blues"))+xlab('')+
-  ylim(0,6)
+                    colors = brewer.pal(6, "Blues"))+
+  guides(fill=guide_colorsteps(order = 1),
+         size=guide_legend(order = 2))+xlab('')+ylim(0,6)
 
 df1 %>% mutate(频度分类=cut(频度,
                             breaks = c(0.5,1.5,2.5,3.5,4.5,5),include.lowest = T,

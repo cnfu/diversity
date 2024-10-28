@@ -29,7 +29,9 @@ pk1 <- ggplot(df2,aes(科,数量))+geom_point(aes(size=数量,fill=数量),
                           aes(科,数量,label=科),
                         max.overlaps = Inf,color='grey20')+
   scale_fill_stepsn(breaks=seq(0,160,30),
-                    colors = brewer.pal(6, "Blues"))+xlab('')
+                    colors = brewer.pal(6, "Blues"))+
+  guides(fill=guide_colorsteps(order = 1),
+         size=guide_legend(order = 2))+xlab('')
 
 options('digits'=2)
 df2 %>% filter(数量<40) -> df2remain

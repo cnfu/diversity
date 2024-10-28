@@ -153,7 +153,9 @@ psl <- ggplot(df8,aes(科名,数量))+geom_point(aes(size=数量,fill=数量),
   geom_text_repel(data = df8highlight,
                   aes(科名,数量,label=科名),max.overlaps = Inf,color='grey20')+
   scale_fill_stepsn(breaks=seq(0,30,10),
-                    colors = brewer.pal(6, "Blues"))+xlab('饲料')
+                    colors = brewer.pal(6, "Blues"))+
+  guides(fill=guide_colorsteps(order = 1),
+         size=guide_legend(order = 2))+xlab('饲料')
 #绿化
 df2 %>% select(科名,种中名,有无用途) %>% filter(str_detect(有无用途,'绿化|绿化观赏')) %>% arrange(科名) %>% view() %>% count(科名,sort = T) %>% 
   as.data.frame()->df9
@@ -172,7 +174,9 @@ plh <- ggplot(df9,aes(科名,数量))+geom_point(aes(size=数量,fill=数量),
   geom_text_repel(data = df9highlight,
                   aes(科名,数量,label=科名),max.overlaps = Inf,color='grey20')+
   scale_fill_stepsn(breaks=seq(0,10,5),
-                    colors = brewer.pal(6, "Blues"))+xlab('绿化')
+                    colors = brewer.pal(6, "Blues"))+
+  guides(fill=guide_colorsteps(order = 1),
+         size=guide_legend(order = 2))+xlab('绿化')
 #油料
 df2 %>% select(科名,种中名,有无用途) %>% filter(str_detect(有无用途,'油料')) %>% arrange(科名) %>% view() %>% count(科名,sort = T) %>% 
   as.data.frame()->df10

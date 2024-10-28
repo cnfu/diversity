@@ -24,6 +24,8 @@ pzdf1 <- ggplot(df1,aes(种中名,总得分))+geom_point(aes(size=总得分,fill
                   max.overlaps = Inf,color='grey20')+
   scale_fill_stepsn(breaks=c(5,10,14,18,21,25),
                     colors = brewer.pal(6, "Blues"))+
+  guides(fill=guide_colorsteps(order = 1),
+         size=guide_legend(order = 2))+
   labs(xlab='',ylab='估量值',size='估量值',fill='估量值')
 
 

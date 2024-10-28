@@ -29,7 +29,8 @@ plycd1 <- ggplot(df1,aes(种中名,利用程度))+
                                          label=种中名),
                   max.overlaps =Inf,color='grey20',
                   min.segment.length = 0)+
-  xlab('')+ylim(0,6)
+  guides(fill=guide_colorsteps(order = 1),
+         size=guide_legend(order = 2))+xlab('')+ylim(0,6)
 
 # dfnew7 %>% filter(利用程度>=3) %>% count()
 # dfnew7 %>% filter(利用程度<3) %>% count()
