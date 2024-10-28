@@ -36,3 +36,8 @@ pddall <- pdd1+pdd2+plot_annotation(tag_levels = 'A')
 tiff('多度.tiff',res=600,width = 15,height = 6, units="in", compression="lzw")
 pddall
 dev.off()
+
+pddall <- pdd1+pdd2+plot_annotation(tag_levels = 'A')
+pdf('多度.pdf',width = 15,height = 6)
+pddall
+dev.off()

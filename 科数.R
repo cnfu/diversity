@@ -3,6 +3,8 @@ library(readxl)
 library(ggrepel)
 library(RColorBrewer)
 library(patchwork)
+library(showtext)
+showtext_auto()
 df <- read_excel('df.xls')
 head(df)
 dim(df)
@@ -32,7 +34,7 @@ pk1 <- ggplot(df2,aes(科,数量))+geom_point(aes(size=数量,fill=数量),
 options('digits'=2)
 df2 %>% filter(数量<40) -> df2remain
 sum(df2remain$数量)
-others <- data.frame(科=c('其他'), 数量=c(1575))
+others <- data.frame(科=c('其他'), 数量=c(1572))
 dfnew <- rbind(filter(df2,数量>=40),others) %>%
   mutate(perc = 数量/ sum(数量)) %>%
   mutate(labels = paste(数量,formattable::percent(perc),sep='-')) %>%
@@ -52,8 +54,13 @@ pk2 <- ggplot(dfnew, aes(x = "", y = 数量, fill = 科)) +
                    max.overlaps = Inf,
                    segment.color = "grey50")
 
-
 pkall <- pk1+pk2+plot_annotation(tag_levels = 'A')
 tiff('科数.tiff',res=600,width = 15,height = 6, units="in", compression="lzw")
 pkall
 dev.off()
+
+pkall <- pk1+pk2+plot_annotation(tag_levels = 'A')
+pdf('科数.pdf',width = 15,height = 6)
+pkall
+dev.off()
+

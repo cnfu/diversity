@@ -3,6 +3,8 @@ library(readxl)
 library(ggrepel)
 library(RColorBrewer)
 library(patchwork)
+library(showtext)
+showtext_auto()
 df <- read_excel('df.xls')
 head(df)
 dim(df)
@@ -29,6 +31,10 @@ pyt <- upset(dfupset,intersect = colnames(dfupset),
     name = '用途',width_ratio = 0.1,min_size=5,
     set_sizes = F)
 tiff('用途.tiff',res=600,width = 15,height = 6, units="in", compression="lzw")
+pyt
+dev.off()
+
+pdf('用途.pdf',width = 15,height = 6)
 pyt
 dev.off()
 
@@ -126,7 +132,9 @@ pyc <- ggplot(df7,aes(科名,数量))+geom_point(aes(size=数量,fill=数量),
   geom_text_repel(data = df7highlight,
                   aes(科名,数量,label=科名),max.overlaps = Inf,color='grey20')+
   scale_fill_stepsn(breaks=seq(0,35,10),
-                    colors = brewer.pal(6, "Blues"))+xlab('用材')
+                    colors = brewer.pal(6, "Blues"))+
+  guides(color=guide_colorsteps(order = 1),
+         size=guide_legend(order = 2))+xlab('用材')
 #饲料
 df2 %>% select(科名,种中名,有无用途) %>% filter(str_detect(有无用途,'饲料|饲用')) %>% arrange(科名) %>% view() %>% count(科名,sort = T) %>% 
   as.data.frame()->df8
@@ -231,5 +239,10 @@ df2 %>% select(科名,种中名,有无用途) %>% filter(str_detect(有无用途
 library(patchwork)
 pall <- (pyy+pgs)/(pyc+pgy)/(psy+psl)/(pyl+plh)+plot_annotation(tag_level = 'A')
 tiff('用途分类.tiff',res = 600,width = 15,height = 15,units = 'in',compression = 'lzw')
+pall
+dev.off()
+
+pall <- (pyy+pgs)/(pyc+pgy)/(psy+psl)/(pyl+plh)+plot_annotation(tag_level = 'A')
+pdf('用途分类.pdf',width = 15,height = 15)
 pall
 dev.off()

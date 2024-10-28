@@ -35,3 +35,8 @@ pzyqkall <- pzyqk1+pzyqk2+plot_annotation(tag_levels = 'A')
 tiff('资源情况得分.tiff',res=600,width = 15,height = 6, units="in", compression="lzw")
 pzyqkall
 dev.off()
+
+pzyqkall <- pzyqk1+pzyqk2+plot_annotation(tag_levels = 'A')
+pdf('资源情况得分.pdf',width = 15,height = 6)
+pzyqkall
+dev.off()

@@ -41,3 +41,8 @@ pzsnlall <- pzsnl1+pzsnl2+plot_annotation(tag_levels = 'A')
 tiff('再生能力.tiff',res=600,width = 15,height = 6, units="in", compression="lzw")
 pzsnlall
 dev.off()
+
+pzsnlall <- pzsnl1+pzsnl2+plot_annotation(tag_levels = 'A')
+pdf('再生能力.pdf',width = 15,height = 6)
+pzsnlall
+dev.off()

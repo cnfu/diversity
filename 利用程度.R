@@ -49,3 +49,8 @@ plycdall <- plycd1+plycd2+plot_annotation(tag_levels = 'A')
 tiff('利用程度.tiff',res=600,width = 15,height = 6, units="in", compression="lzw")
 plycdall
 dev.off()
+
+plycdall <- plycd1+plycd2+plot_annotation(tag_levels = 'A')
+pdf('利用程度.pdf',width = 15,height = 6)
+plycdall
+dev.off()

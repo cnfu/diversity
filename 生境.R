@@ -36,3 +36,8 @@ psjall <- psj1+psj2+plot_annotation(tag_levels = 'A')
 tiff('生境.tiff',res=600,width = 15,height = 6, units="in", compression="lzw")
 psjall
 dev.off()
+
+psjall <- psj1+psj2+plot_annotation(tag_levels = 'A')
+pdf('生境.pdf',width = 15,height = 6)
+psjall
+dev.off()

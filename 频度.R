@@ -36,3 +36,8 @@ ppdall <- ppd1+ppd2+plot_annotation(tag_levels = 'A')
 tiff('频度.tiff',res=600,width = 15,height = 6, units="in", compression="lzw")
 ppdall
 dev.off()
+
+ppdall <- ppd1+ppd2+plot_annotation(tag_levels = 'A')
+pdf('频度.pdf',width = 15,height = 6)
+ppdall
+dev.off()
