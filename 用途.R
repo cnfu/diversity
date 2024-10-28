@@ -133,7 +133,7 @@ pyc <- ggplot(df7,aes(科名,数量))+geom_point(aes(size=数量,fill=数量),
                   aes(科名,数量,label=科名),max.overlaps = Inf,color='grey20')+
   scale_fill_stepsn(breaks=seq(0,35,10),
                     colors = brewer.pal(6, "Blues"))+
-  guides(color=guide_colorsteps(order = 1),
+  guides(fill=guide_colorsteps(order = 1),
          size=guide_legend(order = 2))+xlab('用材')
 #饲料
 df2 %>% select(科名,种中名,有无用途) %>% filter(str_detect(有无用途,'饲料|饲用')) %>% arrange(科名) %>% view() %>% count(科名,sort = T) %>% 

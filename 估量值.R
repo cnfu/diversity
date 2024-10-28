@@ -26,7 +26,7 @@ pzdf1 <- ggplot(df1,aes(种中名,总得分))+geom_point(aes(size=总得分,fill
                     colors = brewer.pal(6, "Blues"))+
   guides(fill=guide_colorsteps(order = 1),
          size=guide_legend(order = 2))+
-  labs(xlab='',ylab='估量值',size='估量值',fill='估量值')
+  labs(x='',y='估量值',size='估量值',fill='估量值')
 
 
 df1 %>% mutate(总得分分类=cut(总得分,
@@ -63,7 +63,7 @@ p21 <- df1 %>% filter(总得分>=21) %>% ggplot(aes(种中名,总得分))+geom_p
                     colors = brewer.pal(6, "Blues"))+
   guides(fill=guide_colorsteps(order = 1),
          size=guide_legend(order = 2))+
-  labs(xlab='',ylab='估量值',size='估量值',fill='估量值')
+  labs(x='',y='估量值',size='估量值',fill='估量值')
 
 
 #18-21
@@ -82,7 +82,7 @@ p1821 <- df1 %>% filter(between(总得分,18,21)) %>% ggplot(aes(种中名,总�
                     colors = brewer.pal(6, "Blues"))+
   guides(fill=guide_colorsteps(order = 1),
          size=guide_legend(order = 2))+
-  labs(xlab='',ylab='估量值',size='估量值',fill='估量值')
+  labs(x='',y='估量值',size='估量值',fill='估量值')
 
 #14-18
 df1 %>% filter(between(总得分,14,18)) %>% slice_sample(n=10)->df1418sample
@@ -100,7 +100,7 @@ p1418 <- df1 %>% filter(between(总得分,14,18)) %>% ggplot(aes(种中名,总�
                     colors = brewer.pal(6, "Blues"))+
   guides(fill=guide_colorsteps(order = 1),
          size=guide_legend(order = 2))+
-  labs(xlab='',ylab='估量值',size='估量值',fill='估量值')
+  labs(x='',y='估量值',size='估量值',fill='估量值')
 #10-14
 df1 %>% filter(between(总得分,10,14)) %>% slice_sample(n=10)->df1014sample
 p1014 <- df1 %>% filter(between(总得分,10,14)) %>% ggplot(aes(种中名,总得分))+geom_point(aes(size=总得分,fill=总得分),
@@ -117,7 +117,7 @@ p1014 <- df1 %>% filter(between(总得分,10,14)) %>% ggplot(aes(种中名,总�
                     colors = brewer.pal(6, "Blues"))+
   guides(fill=guide_colorsteps(order = 1),
          size=guide_legend(order = 2))+
-  labs(xlab='',ylab='估量值',size='估量值',fill='估量值')
+  labs(x='',y='估量值',size='估量值',fill='估量值')
 #小于10
 df1 %>% filter(总得分<10) %>% slice_sample(n=10)->df10sample
 p10 <- df1 %>% filter(总得分<10) %>% ggplot(aes(种中名,总得分))+geom_point(aes(size=总得分,fill=总得分),
@@ -134,7 +134,7 @@ p10 <- df1 %>% filter(总得分<10) %>% ggplot(aes(种中名,总得分))+geom_po
                     colors = brewer.pal(6, "Blues"))+
   guides(fill=guide_colorsteps(order = 1),
          size=guide_legend(order = 2))+
-  labs(xlab='',ylab='估量值',size='估量值',fill='估量值')
+  labs(x='',y='估量值',size='估量值',fill='估量值')
 
 
                     
